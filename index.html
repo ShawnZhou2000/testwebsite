@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>test</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="jumbotron" id="app">
+      <h1>开奖机</h1>
+      <div class="card bg-info text-white mb-3" v-for="i in 5" :key="i">
+        <div class="card-body" @click="cj(i)">刮开有惊喜</div>
+      </div>
+      
+    </div>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            lucky: '',
+          }
+        },
+        methods: {
+          cj(i) {
+            if (i === this.lucky) {
+              alert("恭喜你中奖了")
+            }
+            else {
+              alert("很遗憾没有中奖")
+            }
+          }
+        },
+        mounted() {
+          this.lucky = Math.floor(Math.random() * 5);
+        }
+        
+      })
+    </script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	</body>
+</html>
+ 
